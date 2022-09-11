@@ -61,8 +61,8 @@ jobs:
 
     - name: Organize files
       run: |
-        mkdir ignite-reactjs
-        mv dist/index.html ignite-reactjs/index.html
+        mkdir ./dist/ignite-reactjs
+        mv ./dist/index.html ./dist/ignite-reactjs/index.html
 
     - name: SSH-Deploy
       if: success()
