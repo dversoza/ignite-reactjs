@@ -5,7 +5,18 @@ import { Avatar } from './Avatar'
 import { ThumbsUp, Trash } from 'phosphor-react'
 import { useState } from 'react'
 
-export function Comment({ id, content, publishedAt, author, onDeleteComment }) {
+interface CommentContent {
+    type: string
+    text: string
+}
+
+interface CommentProps {
+    id: number
+    content: CommentContent[]
+    onDeleteComment: (id: number) => void
+}
+
+export function Comment({ id, content, onDeleteComment }: CommentProps) {
     const [likeCount, setLikeCount] = useState(0)
 
     function handleLike() {
@@ -20,7 +31,7 @@ export function Comment({ id, content, publishedAt, author, onDeleteComment }) {
 
     return (
         <div className={styles.comment}>
-            <Avatar src="https://github.com/dversoza.png" hasBorder={false} />
+            <Avatar src="https://github.com/dversoza.png" hasBorder={false} alt="Daniel Versoza" />
 
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
